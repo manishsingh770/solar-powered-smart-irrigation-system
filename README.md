@@ -1,6 +1,6 @@
 # Solar-Powered Smart Irrigation System
 
-## 1. Project Overview
+## 1. Project Overview 
 
 The Solar-Powered Smart Irrigation System is a software-based prototype designed to improve water management in agriculture. It uses soil moisture readings and threshold-based logic to determine when irrigation is required.
 
