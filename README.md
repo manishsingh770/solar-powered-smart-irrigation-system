@@ -1,5 +1,5 @@
 # solar-powered-smart-irrigation-system
-# Solar-Powered Smart Irrigation System
+
 
 ## 1. Project Overview
 
