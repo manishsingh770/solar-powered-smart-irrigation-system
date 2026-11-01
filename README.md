@@ -1,6 +1,7 @@
+# solar-powered-smart-irrigation-system
 # Solar-Powered Smart Irrigation System
 
-## 1. Project Overview 
+## 1. Project Overview
 
 The Solar-Powered Smart Irrigation System is a software-based prototype designed to improve water management in agriculture. It uses soil moisture readings and threshold-based logic to determine when irrigation is required.
 
@@ -28,8 +29,7 @@ Traditional irrigation methods can lead to unnecessary water consumption, requir
 - **Version Control:** Git and GitHub
 
 ## 5. Project Features
-
-- Simulated dataset containing 55 readings.
+- Existing simulated dataset containing 55 readings and Tomato JSON sensor dataset containing 393 records.
 - Data cleaning and validation.
 - Threshold-based irrigation decision logic.
 - Interactive soil moisture threshold slider.
@@ -51,6 +51,26 @@ The simulated dataset contains the following attributes:
 | `pump_status` | Simulated pump status, ON or OFF |
 
 **Note:** The dataset is simulated for software development and testing. The readings are not collected from physical sensors.
+
+### Tomato Sensor Dataset
+
+The project also uses a Tomato Sensor Dataset containing 393
+sensor records in JSON format.
+
+Dataset attributes include:
+- Temperature
+- Humidity
+- Soil moisture percentage
+- Sunlight
+- Solar radiation
+- Evapotranspiration
+- Irrigation-related parameters
+
+The JSON dataset is used for soil moisture monitoring,
+irrigation decision testing and dashboard visualization.
+
+The irrigation decision is simulated using the project's
+40% soil moisture threshold.
 
 ## 7. Irrigation Logic
 
@@ -74,6 +94,10 @@ This threshold is an initial testing value and will require calibration for actu
 - `analyzed_irrigation_data.csv` – Analysed dataset.
 - `SOFTWARE_TESTING.md` – Software testing documentation.
 - `results/` – Contains analysis outputs and testing screenshots.
+- `Dataset on irrigation for Tomato/` - Contains Tomato JSON sensor dataset.
+- `test_tomato_json_logic.py` - Tests Tomato JSON irrigation logic.
+- `visualize_tomato_json.py` - Generates Tomato JSON visualizations.
+
 
 ## 9. Installation and Execution
 
@@ -99,14 +123,13 @@ pip install streamlit pandas matplotlib
 ```bash
 streamlit run app.py
 ```
-
+The dashboard supports both the Existing Irrigation Dataset and the Tomato JSON Sensor Dataset.
 The dashboard will open in your browser. If it does not open automatically, use the local URL displayed in the terminal.
 
-**Important:** Run the dashboard from the directory containing `app.py` and the required cleaned dataset.
+**Important:** Run the dashboard from the project directory containing `app.py` and the required dataset files.
 
 ## 10. Testing and Results
-
-The current software prototype has been tested using five different soil moisture values. All five test cases passed successfully.
+The current software prototype has been tested using seven different soil moisture values, including boundary values. All seven test cases passed successfully.
 
 The dataset analysis produced the following results:
 
@@ -119,6 +142,29 @@ The dataset analysis produced the following results:
 
 These results describe the current simulated dataset and do not represent measured field performance.
 
+### Tomato JSON Dataset Testing
+
+- Total sensor records: 393
+- Missing required values: 0
+- Soil moisture threshold: 40%
+- Pump ON decisions: 6
+- Pump OFF decisions: 387
+- Pump ON percentage: 1.53%
+- Pump OFF percentage: 98.47%
+
+All 393 records were tested using the project's
+40% soil moisture threshold.
+
+These are simulated irrigation decisions and do not
+represent physical pump operation.
+
+### Tomato JSON Visualization
+
+- Soil moisture distribution graph: Generated.
+- Temperature distribution graph: Generated.
+- Humidity distribution graph: Generated.
+- Visualization output: Successfully displayed.
+
 ## 11. Current Project Status
 
 **Completed:**
@@ -127,13 +173,17 @@ These results describe the current simulated dataset and do not represent measur
 - Python-based irrigation decision logic.
 - Interactive Streamlit dashboard.
 - Preliminary data analysis.
-- Testing of five irrigation logic cases.
+- Testing of seven irrigation logic boundary cases.
+- Tomato JSON dataset integration and validation.
+- Tomato JSON irrigation logic testing.
+- Tomato JSON data visualization.
 
 **Pending:**
 - Integration with physical hardware.
 - Testing with real soil moisture sensor readings.
 - Solar panel and battery performance evaluation.
 - Physical water pump control and system validation.
+
 
 ## 12. Future Scope
 

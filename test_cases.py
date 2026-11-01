@@ -4,7 +4,9 @@ from irrigation_logic import irrigation_decision
 test_cases = [
     (20, "ON"),
     (35, "ON"),
+    (39.99, "ON"),
     (40, "OFF"),
+    (40.01, "OFF"),
     (55, "OFF"),
     (80, "OFF")
 ]

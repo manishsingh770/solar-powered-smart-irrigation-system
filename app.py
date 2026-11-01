@@ -21,7 +21,37 @@ st.info(
 )
 
 # Load cleaned data
-data = pd.read_csv("cleaned_irrigation_data.csv")
+
+# Choose dataset
+dataset_choice = st.selectbox(
+    "Select Dataset",
+    [
+        "Existing Irrigation Dataset",
+        "Tomato Sensor Dataset"
+    ]
+)
+
+if dataset_choice == "Existing Irrigation Dataset":
+    data = pd.read_csv("cleaned_irrigation_data.csv")
+
+else:
+    json_path = (
+        "Dataset on irrigation for Tomato/"
+        "tomato_water_sensor_data.json"
+    )
+    data = pd.read_json(json_path)
+
+    # Map tomato dataset columns to dashboard columns
+    data = data.rename(columns={
+        "moisturePercentage": "soil_moisture",
+        "dateTimeAdded": "time"
+    })
+
+    # Ensure dashboard uses the expected columns
+    data["time"] = pd.to_datetime(
+        data["time"], errors="coerce"
+    )
+  
 
 # Interactive threshold
 threshold = st.slider(
